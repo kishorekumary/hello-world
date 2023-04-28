@@ -32,7 +32,6 @@
 ---
 ***
 
-<br>
 * Overall application related variables
 ---
 
@@ -85,7 +84,6 @@ dns_name           = "api-dev.gamio-services.net"
 s3_bucket_name     = "test-fargate-cluster-configurations"
 ---
 
-</br>
 
 ---
 ***

@@ -34,35 +34,56 @@
 
 <br>
 * Overall application related variables
-
+---
 
 game_name          = "test-client"
+
 service_name       = ["contest", "cricket", "football", "leaderboard", "payment", "player-analytics", "tenant", "socket", "revenue", "game-analytics"]
+
 services_to_launch = [true,        false,      false,         true,    false,       true,           false,    false,     false,      false]
+
 environment        = "dev"
+
 aws_region           = "us-east-1"
+---
 
 * vpc related variables
+---
 
 vpc_cidr_block       = "192.168.0.0/16"
-subnets_cidr_public  = ["192.168.0.0/24", "192.168.1.0/24", "192.168.2.0/24"]
-subnets_cidr_private = ["192.168.3.0/24", "192.168.4.0/24", "192.168.5.0/24"]
 
+subnets_cidr_public  = ["192.168.0.0/24", "192.168.1.0/24", "192.168.2.0/24"]
+
+subnets_cidr_private = ["192.168.3.0/24", "192.168.4.0/24", "192.168.5.0/24"]
+---
 
 * load-balancer,ecs and env-file related variables
+---
 
 contest_image      = "nginx:latest"
+
 cricket_image      = "nginx"
+
 football_image     = "nginx"
+
 payment_image      = "nginx"
+
 pl-analytics_image = "nginx"
+
 leaderboard_image  = "606880623734.dkr.ecr.ap-south-1.amazonaws.com/leaderboard-service:latest"
+
 tenant_image       = "606880623734.dkr.ecr.ap-south-1.amazonaws.com/tenant:latest"
+
 target_port        = 3000
+
 certarn            = "arn:aws:acm:us-east-1:606880623734:certificate/a99a9aad-d80c-4d0e-bafc-97192b94a3b9"
+
 ecsrole            = "arn:aws:iam::606880623734:role/ecsTaskExecutionRole-b2b-tenant"
+
 dns_name           = "api-dev.gamio-services.net"
+
 s3_bucket_name     = "test-fargate-cluster-configurations"
+---
 
 </br>
 

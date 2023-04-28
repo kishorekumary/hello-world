@@ -32,7 +32,7 @@
 ---
 ***
 
-##### Overall application related variables
+##### ***Overall application related variables***
 
 ---
 
@@ -48,7 +48,7 @@ aws_region           = "us-east-1"
 
 ---
 
-##### vpc related variables
+##### ***vpc related variables***
 
 ---
 
@@ -60,7 +60,7 @@ subnets_cidr_private = ["192.168.3.0/24", "192.168.4.0/24", "192.168.5.0/24"]
 
 ---
 
-##### load-balancer,ecs and env-file related variables
+##### ***load-balancer,ecs and env-file related variables***
 
 ---
 

@@ -18,12 +18,12 @@
 
 ## Instructions for executing the commands
 
-#### Make sures `s3_bucket_name` used here for storing env file must have been created before applying 
-#### Right now ECR has to be setup manually and the image corresponding to the service has to be uploaded to ECR from local for the first time. So you can provide image_url in the input variables to reduce some manual steps if it is already created. Else you can use some dummy name say `nginx` for now. Can change it manually later.
-### If you have the `env files` ready with you then you can keep the file with valid name(it is predefined and you can refer to the modules for this) in the env directory at root level then they will be uploaded to s3. Please note that if file-name is not properly given then it will upload a dummy.env file to the s3 bucket which is in the root module.(The name of env file to be uploaded depends on other variables: For e.g. if game_name="abc", environment="dev", service_name[i]="contest" then corresponding env should be having name: abc-dev-contest.env )
+###### Make sures `s3_bucket_name` used here for storing env file must have been created before applying 
+###### Right now ECR has to be setup manually and the image corresponding to the service has to be uploaded to ECR from local for the first time. So you can provide image_url in the input variables to reduce some manual steps if it is already created. Else you can use some dummy name say `nginx` for now. Can change it manually later.
+###### If you have the `env files` ready with you then you can keep the file with valid name(it is predefined and you can refer to the modules for this) in the env directory at root level then they will be uploaded to s3. Please note that if file-name is not properly given then it will upload a dummy.env file to the s3 bucket which is in the root module.(The name of env file to be uploaded depends on other variables: For e.g. if game_name="abc", environment="dev", service_name[i]="contest" then corresponding env should be having name: abc-dev-contest.env )
 ### ensure that `ecsrole` mentioned has proper permissions to read env files. Service may fail to update if it does not have enough permission to read envs stored at s3.
 
-### Sample tf.tfvars file should have valid values and it may not be same as mentioned below
+###### Sample tf.tfvars file should have valid values and it may not be same as mentioned below
 
 
 ---

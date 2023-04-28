@@ -102,18 +102,20 @@ s3_bucket_name     = "test-fargate-cluster-configurations"
 
 * VPC related!
 
-    ##### - Creates VPC, three public and three private subnets.
-    ##### - Creates Route tables for public and private subnets. Associates them to corresponding subnets
-    ##### - Creates internet gateway 
-    ##### - Creates NAT Gateway
-    ##### - Creates EIP for NAT Gateway
+        ##### - Creates VPC, three public and three private subnets.
+        ##### - Creates Route tables for public and private subnets. Associates them to corresponding subnets
+        ##### - Creates internet gateway 
+        ##### - Creates NAT Gateway
+        ##### - Creates EIP for NAT Gateway
+
 ---
 
 * Loadbalancer Related
 
-##### - Creates loadbalancer
-##### - Creates HTTP and HTTPS listeners
-##### - Create listener rules for  whatever service that we are creating for client mentioned in the input files. In some of the services more than one listener rule is created for forwarding to target groups
+        ##### - Creates loadbalancer
+        ##### - Creates HTTP and HTTPS listeners
+        ##### - Create listener rules for  whatever service that we are creating for client mentioned in the input files. In some of the services more than one listener rule is created for forwarding to target groups
+
 ---
 
 * Cloudwatch related

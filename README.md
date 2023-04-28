@@ -32,7 +32,8 @@
 ---
 ***
 
-* Overall application related variables
+##### Overall application related variables
+
 ---
 
 game_name          = "test-client"
@@ -44,9 +45,11 @@ services_to_launch = [true,        false,      false,         true,    false,   
 environment        = "dev"
 
 aws_region           = "us-east-1"
+
 ---
 
-* vpc related variables
+##### vpc related variables
+
 ---
 
 vpc_cidr_block       = "192.168.0.0/16"
@@ -54,9 +57,11 @@ vpc_cidr_block       = "192.168.0.0/16"
 subnets_cidr_public  = ["192.168.0.0/24", "192.168.1.0/24", "192.168.2.0/24"]
 
 subnets_cidr_private = ["192.168.3.0/24", "192.168.4.0/24", "192.168.5.0/24"]
+
 ---
 
-* load-balancer,ecs and env-file related variables
+##### load-balancer,ecs and env-file related variables
+
 ---
 
 contest_image      = "nginx:latest"
@@ -82,6 +87,7 @@ ecsrole            = "arn:aws:iam::606880623734:role/ecsTaskExecutionRole-b2b-te
 dns_name           = "api-dev.gamio-services.net"
 
 s3_bucket_name     = "test-fargate-cluster-configurations"
+
 ---
 
 

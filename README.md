@@ -102,36 +102,37 @@ s3_bucket_name     = "test-fargate-cluster-configurations"
 
 * VPC related!
 
-        ##### - Creates VPC, three public and three private subnets.
-        ##### - Creates Route tables for public and private subnets. Associates them to corresponding subnets
-        ##### - Creates internet gateway 
-        ##### - Creates NAT Gateway
-        ##### - Creates EIP for NAT Gateway
+     ##### - Creates VPC, three public and three private subnets.
+     ##### - Creates Route tables for public and private subnets. Associates them to corresponding subnets
+     ##### - Creates internet gateway 
+     ##### - Creates NAT Gateway
+     ##### - Creates EIP for NAT Gateway
 
 ---
 
 * Loadbalancer Related
 
-        ##### - Creates loadbalancer
-        ##### - Creates HTTP and HTTPS listeners
-        ##### - Create listener rules for  whatever service that we are creating for client mentioned in the input files. In some of the services more than one listener rule is created for forwarding to target groups
+     ##### - Creates loadbalancer
+     ##### - Creates HTTP and HTTPS listeners
+     ##### - Create listener rules for  whatever service that we are creating for client mentioned in the input files. In some of the services more than one listener rule is created for forwarding to target groups
 
 ---
 
 * Cloudwatch related
 
-##### - Creates cloudwatch group for each service that we want to launch
+     ##### - Creates cloudwatch group for each service that we want to launch
 ---
 * s3 related
 
-##### - we upload the env files to the already created s3 bucket which is present in `ap-south-1` region
+     ##### - we upload the env files to the already created s3 bucket which is present in `ap-south-1` region
 ---
 
 * ecs related
 
-##### - Creates ecs cluster for the client.
-##### - Creates resources for only the services mentioned in the input file.
-##### - Creates task definition for the services mentioned
-##### - Targetgroup for the service for the services mentioned
-##### - Creates ecs service for the services mentioned
+     ##### - Creates ecs cluster for the client.
+     ##### - Creates resources for only the services mentioned in the input file.
+     ##### - Creates task definition for the services mentioned
+     ##### - Targetgroup for the service for the services mentioned
+     ##### - Creates ecs service for the services mentioned
+
 ---

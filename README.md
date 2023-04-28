@@ -25,8 +25,11 @@
 
 ### Sample tf.tfvars file should have valid values and it may not be same as mentioned below
 
-<br>
 
+---
+***
+
+<br>
 ############################################################################
 #         Overall application related variables
 ############################################################################
@@ -62,7 +65,8 @@ s3_bucket_name     = "test-fargate-cluster-configurations"
 
 </br>
 
-
+---
+***
 
 
 

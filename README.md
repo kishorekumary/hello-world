@@ -1,7 +1,7 @@
-### This folder contains terraform configuration files to create resources for ecs services that gamiotech develops. By using terraform commands we create resources that are required to be deployed for the client.
+#### This folder contains terraform configuration files to create various resources on aws to deploy multiple  ecs services that are necessary.
 
-#### We need tf.tfvars which is a variables file to run these scripts. tf.tfvars file is not present in this repository. It needs to have values w.r.t client's needs.
-#### To create tf.tfvars file please refer to the variables.tf file present in the root module and also given sample values of tf.tfvars file in the document later. 
+#### We need an additional file tf.tfvars which is a variables file to run these scripts. tf.tfvars file is not present in this repository. It needs to have values w.r.t client's needs.
+#### To create tf.tfvars file please refer to the variables.tf file present in the root directory in this folder. Also given sample values of tf.tfvars file in this  document later. 
 
 #### Commands to deploy infrastructure
 ###### To initiate modules and  installs plugins for required providers
@@ -16,14 +16,17 @@
 `terraform destroy -var-file="tf.tfvars"` 
 
 
-## Instructions for executing the commands
+## Prerequisites for executing the commands
 
-###### Make sures `s3_bucket_name` used here for storing env file must have been created before applying 
-###### Right now ECR has to be setup manually and the image corresponding to the service has to be uploaded to ECR from local for the first time. So you can provide image_url in the input variables to reduce some manual steps if it is already created. Else you can use some dummy name say `nginx` for now. Can change it manually later.
-###### If you have the `env files` ready with you then you can keep the file with valid name(it is predefined and you can refer to the modules for this) in the env directory at root level then they will be uploaded to s3. Please note that if file-name is not properly given then it will upload a dummy.env file to the s3 bucket which is in the root module.(The name of env file to be uploaded depends on other variables: For e.g. if game_name="abc", environment="dev", service_name[i]="contest" then corresponding env should be having name: abc-dev-contest.env )
-### ensure that `ecsrole` mentioned has proper permissions to read env files. Service may fail to update if it does not have enough permission to read envs stored at s3.
+* Make sures `s3_bucket_name` used here for storing env file must have been created before applying 
 
-###### Sample tf.tfvars file should have valid values and it may not be same as mentioned below
+* Right now ECR has to be setup manually and the image corresponding to the service has to be uploaded to ECR from local for the first time. So you can provide image urls in the input variables to reduce some manual steps if it is already created. Else you can use some dummy name for now and can change it manually later.
+
+* If you have the `environment files` related to services ready with you, then you can keep the files with valid names in the env directory at root level in this folder then those files will be uploaded to s3.(Name of envfile that code expects is defined within the code and you can refer to any of the ecs modules to understand the naming convention.) Please note that if file-name is not exactly mentioned as it requires then it will upload a dummy env file to the s3 bucket which is in the root module but inside s3 you can see a file uploaded with proper name which you need to replace it manually later on. (The name of env file to be uploaded depends on other variables: For e.g. if game_name="abc", environment="dev", service_name[i]="contest" then corresponding env should be having the name: abc-dev-contest.env )
+
+* ensure that `ecsrole` mentioned has proper permissions to read env files. Service may fail to update if it does not have enough permission to read envs stored at s3.
+
+* Sample tf.tfvars file should have valid values and it may not be same as mentioned below
 
 
 ---
@@ -70,7 +73,7 @@ s3_bucket_name     = "test-fargate-cluster-configurations"
 
 
 
-### What resources will be created? We create long list of resources. Broadly VPC related, Loadbalaner related, cloudwatch related, s3 related(upload envs only) and ecs related services.
+### Resources that will be created with this  We create long list of resources. Broadly VPC related, Loadbalaner related, cloudwatch related, s3 related(upload envs only) and ecs related services.
 ---
 
 #### VPC related!

@@ -26,33 +26,31 @@
 
 * ensure that `ecsrole` mentioned has proper permissions to read env files. Service may fail to update if it does not have enough permission to read envs stored at s3.
 
-* Sample tf.tfvars file should have valid values and it may not be same as mentioned below
+* Sample tf.tfvars file should have valid values and mentioned below the required sample values. Values mentioned here are for reference only and not be used as it is while running in the scripts.
 
 
 ---
 ***
 
 <br>
-############################################################################
-#####        Overall application related variables
-############################################################################
+* Overall application related variables
+
+
 game_name          = "test-client"
 service_name       = ["contest", "cricket", "football", "leaderboard", "payment", "player-analytics", "tenant", "socket", "revenue", "game-analytics"]
 services_to_launch = [true,        false,      false,         true,    false,       true,           false,    false,     false,      false]
 environment        = "dev"
 aws_region           = "us-east-1"
-###########################################################################
-#####         vpc related variables
-###########################################################################
+
+* vpc related variables
 
 vpc_cidr_block       = "192.168.0.0/16"
 subnets_cidr_public  = ["192.168.0.0/24", "192.168.1.0/24", "192.168.2.0/24"]
 subnets_cidr_private = ["192.168.3.0/24", "192.168.4.0/24", "192.168.5.0/24"]
 
 
-###########################################################################
-#####             load-balancer,ecs and env-file related variables
-###########################################################################
+* load-balancer,ecs and env-file related variables
+
 contest_image      = "nginx:latest"
 cricket_image      = "nginx"
 football_image     = "nginx"
@@ -73,7 +71,8 @@ s3_bucket_name     = "test-fargate-cluster-configurations"
 
 
 
-### Resources that will be created with this  We create long list of resources. Broadly VPC related, Loadbalaner related, cloudwatch related, s3 related(upload envs only) and ecs related services.
+### Resources that will be created ?
+##### We create long list of resources. Broadly VPC related, Loadbalaner related, cloudwatch related, s3 related(upload envs only) and ecs related services.
 ---
 
 #### VPC related!

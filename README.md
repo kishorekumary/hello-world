@@ -1,29 +1,31 @@
 ### This folder contains terraform configuration files to create resources for ecs services that gamiotech develops. By using terraform commands we create resources that are required to be deployed for the client.
 
 #### We need tf.tfvars which is a variables file to run these scripts. tf.tfvars file is not present in this repository. It needs to have values w.r.t client's needs.
+#### To create tf.tfvars file please refer to the variables.tf file present in the root module and also given sample values of tf.tfvars file in the document later. 
 
 #### Commands to deploy infrastructure
-###### This initiates modules and  installs plugins for required providers
+###### To initiate modules and  installs plugins for required providers
 `terraform init` 
 ###### To show any syntax errors
 `terraform validate` 
-###### This shows in the commandline what resources are going to be created/destroyed/modified in the cloud 
+###### To shows what resources are going to be created/destroyed/modified in the cloud 
 `terraform plan -var-file="tf.tfvars"` 
-###### This command will create resources in the cloud depending upon the input values provided in the tf.tfvars file
+###### To create resources in the cloud depending upon the input values provided in the tf.tfvars file
 `terraform apply -var-file="tf.tfvars"`  
 ###### To destroy the resources if no longer required.
 `terraform destroy -var-file="tf.tfvars"` 
 
-### To create tf.tfvars file please refer to the variables.tf file present in the root module.
+
 ## Instructions for executing the commands
-### Make sures `s3_bucket_name` used here for storing env file must have been created before applying 
-### Right now ECR has to be setup manually and the image corresponding to the service has to be uploaded to ECR from local for the first time. So you can provide image_url in the input variables to reduce some manual steps if it is already created. Else you can use some dummy name say `nginx` for now. Can change it manually later.
-### If you have the env files ready with you then you can keep the file with valid name(it is predefined and you can refer to the modules for this) in the env directory at root level that will be uploaded to s3. Please note that if file-name is not properly given then it will upload a dummy.env file to the s3 bucket which is in the root module.(This name depends on other variables: e.g. game_name="abc", environment="dev", service_name[i]="contest" then corresponding env should have name: abc-dev-contest.env )
+
+#### Make sures `s3_bucket_name` used here for storing env file must have been created before applying 
+#### Right now ECR has to be setup manually and the image corresponding to the service has to be uploaded to ECR from local for the first time. So you can provide image_url in the input variables to reduce some manual steps if it is already created. Else you can use some dummy name say `nginx` for now. Can change it manually later.
+### If you have the `env files` ready with you then you can keep the file with valid name(it is predefined and you can refer to the modules for this) in the env directory at root level then they will be uploaded to s3. Please note that if file-name is not properly given then it will upload a dummy.env file to the s3 bucket which is in the root module.(The name of env file to be uploaded depends on other variables: For e.g. if game_name="abc", environment="dev", service_name[i]="contest" then corresponding env should be having name: abc-dev-contest.env )
 ### ensure that `ecsrole` mentioned has proper permissions to read env files. Service may fail to update if it does not have enough permission to read envs stored at s3.
 
 ### Sample tf.tfvars file should have valid values and it may not be same as mentioned below
 
-<p>
+<br>
 
 ############################################################################
 #         Overall application related variables
@@ -58,7 +60,7 @@ ecsrole            = "arn:aws:iam::606880623734:role/ecsTaskExecutionRole-b2b-te
 dns_name           = "api-dev.gamio-services.net"
 s3_bucket_name     = "test-fargate-cluster-configurations"
 
-</p>
+</br>
 
 
 

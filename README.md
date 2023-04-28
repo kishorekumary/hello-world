@@ -31,7 +31,7 @@
 
 <br>
 ############################################################################
-#         Overall application related variables
+#####        Overall application related variables
 ############################################################################
 game_name          = "test-client"
 service_name       = ["contest", "cricket", "football", "leaderboard", "payment", "player-analytics", "tenant", "socket", "revenue", "game-analytics"]
@@ -39,7 +39,7 @@ services_to_launch = [true,        false,      false,         true,    false,   
 environment        = "dev"
 aws_region           = "us-east-1"
 ###########################################################################
-#         vpc related variables
+#####         vpc related variables
 ###########################################################################
 
 vpc_cidr_block       = "192.168.0.0/16"
@@ -48,7 +48,7 @@ subnets_cidr_private = ["192.168.3.0/24", "192.168.4.0/24", "192.168.5.0/24"]
 
 
 ###########################################################################
-#             load-balancer,ecs and env-file related variables
+#####             load-balancer,ecs and env-file related variables
 ###########################################################################
 contest_image      = "nginx:latest"
 cricket_image      = "nginx"
@@ -70,33 +70,34 @@ s3_bucket_name     = "test-fargate-cluster-configurations"
 
 
 
-# What resources will be created!
-## We create long list of resources. Broadly VPC related, Loadbalaner related, cloudwatch related, s3 related(upload envs) and ecs related!
+### What resources will be created? We create long list of resources. Broadly VPC related, Loadbalaner related, cloudwatch related, s3 related(upload envs only) and ecs related services.
+---
 
-## VPC related!
-### Creates VPC, three public and three private subnets.
-### Creates Route tables for public and private subnets. Associates them to corresponding subnets
-### Creates internet gateway 
-### Creates NAT Gateway
-### Creates EIP for NAT Gateway
+#### VPC related!
+##### Creates VPC, three public and three private subnets.
+##### Creates Route tables for public and private subnets. Associates them to corresponding subnets
+##### Creates internet gateway 
+##### Creates NAT Gateway
+##### Creates EIP for NAT Gateway
+---
 
+#### Loadbalancer Related
+##### Creates loadbalancer
+##### Creates HTTP and HTTPS listeners
+##### Create listener rules for  whatever service that we are creating for client mentioned in the input files. In some of the services more than one listener rule is created for forwarding to target groups
+---
 
-## Loadbalancer Related
-### Creates loadbalancer
-### Creates HTTP and HTTPS listeners
-### Create listener rules for  whatever service that we are creating for client mentioned in the input files. In some of the services more than one listener rule is created for forwarding to target groups
+#### Cloudwatch related
+##### Creates cloudwatch group for each service that we want to launch
+---
+#### s3 related
+##### we upload the env files to the already created s3 bucket which is present in `ap-south-1` region
+---
 
-
-## Cloudwatch related
-### Creates cloudwatch group for each service that we want to launch
-
-## s3 related
-### we upload the env files to the already created s3 bucket which is present in `ap-south-1` region
-
-## ecs related
-### Creates ecs cluster for the client.
-### Creates resources for only the services mentioned in the input file.
-### Creates task definition for the services mentioned
-### Targetgroup for the service for the services mentioned
-### Creates ecs service for the services mentioned
-
+#### ecs related
+##### Creates ecs cluster for the client.
+##### Creates resources for only the services mentioned in the input file.
+##### Creates task definition for the services mentioned
+##### Targetgroup for the service for the services mentioned
+##### Creates ecs service for the services mentioned
+---

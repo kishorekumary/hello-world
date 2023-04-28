@@ -2,13 +2,17 @@
 
 #### We need tf.tfvars which is a variables file to run these scripts. tf.tfvars file is not present in this repository. It needs to have values w.r.t client's needs.
 
-##### Commands to deploy infrastructure
-
-`terraform init` #### This initiates modules and  installs plugins for required providers
-`terraform validate` #### shows any syntax errors
-`terraform plan -var-file="tf.tfvars"` #### This shows in the commandline what resources are going to be created/destroyed/modified in the cloud 
-`terraform apply -var-file="tf.tfvars"`  #### This command will create resources in the cloud depending upon the input values provided in the tf.tfvars file
-`terraform destroy -var-file="tf.tfvars"` #### To destroy the resources if no longer required.
+#### Commands to deploy infrastructure
+###### This initiates modules and  installs plugins for required providers
+`terraform init` 
+###### To show any syntax errors
+`terraform validate` 
+###### This shows in the commandline what resources are going to be created/destroyed/modified in the cloud 
+`terraform plan -var-file="tf.tfvars"` 
+###### This command will create resources in the cloud depending upon the input values provided in the tf.tfvars file
+`terraform apply -var-file="tf.tfvars"`  
+###### To destroy the resources if no longer required.
+`terraform destroy -var-file="tf.tfvars"` 
 
 ### To create tf.tfvars file please refer to the variables.tf file present in the root module.
 ## Instructions for executing the commands
